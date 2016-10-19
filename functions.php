@@ -196,6 +196,26 @@
 		$database = "if16_romil";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
 
+		//kas on juba olemas
+		
+		$stmt = $mysqli->prepare("
+			SELECT id FROM user_interests_1 
+			WHERE user_id=? AND interest_id=?
+		");
+		$stmt->bind_param("ii", $_SESSION["userId"], $interest_id);
+		$stmt->execute();
+		
+		if ($stmt->fetch()) {
+			// oli olemas 
+			echo "juba olemas";
+			
+			//ära salvestamisega jätka
+			return;
+		}
+	
+		$stmt->close();
+		// jätkan salvestamisega...
+		
 		$stmt = $mysqli->prepare("
 			INSERT INTO user_interests_1 
 			(user_id, interest_id) VALUES (?, ?)
