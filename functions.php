@@ -188,6 +188,34 @@
 		
 	}
 	
+	function saveUserInterest ($interest_id) {
+		
+		echo "huviala: ".$interest_id."<br>";
+		echo "kasutaja: ".$_SESSION["userId"]."<br>";
+		
+		$database = "if16_romil";
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
+
+		$stmt = $mysqli->prepare("
+			INSERT INTO user_interests_1 
+			(user_id, interest_id) VALUES (?, ?)
+		");
+	
+		echo $mysqli->error;
+		
+		$stmt->bind_param("ii", $_SESSION["userId"], $interest_id);
+		
+		if($stmt->execute()) {
+			echo "salvestamine õnnestus";
+		} else {
+		 	echo "ERROR ".$stmt->error;
+		}
+		
+		$stmt->close();
+		$mysqli->close();
+		
+	}
+	
 	function getAllInterests() {
 		
 		$database = "if16_romil";
