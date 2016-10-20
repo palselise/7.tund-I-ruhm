@@ -14,7 +14,7 @@
 	
 	function signUp ($email, $password) {
 		
-		$database = "if16_romil";
+		$database = "if16_epals";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
 
 		$stmt = $mysqli->prepare("INSERT INTO user_sample (email, password) VALUES (?, ?)");
@@ -39,7 +39,7 @@
 		
 		$error = "";
 		
-		$database = "if16_romil";
+		$database = "if16_epals";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
 
 		$stmt = $mysqli->prepare("
@@ -95,7 +95,7 @@
 	
 	function saveCar ($plate, $color) {
 		
-		$database = "if16_romil";
+		$database = "if16_epals";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
 
 		$stmt = $mysqli->prepare("INSERT INTO cars_and_colors (plate, color) VALUES (?, ?)");
@@ -118,7 +118,7 @@
 	
 	function getAllCars() {
 		
-		$database = "if16_romil";
+		$database = "if16_epals";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
 		
 		$stmt = $mysqli->prepare("
@@ -168,7 +168,7 @@
 	
 	function saveInterest ($interest) {
 		
-		$database = "if16_romil";
+		$database = "if16_epals";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
 
 		$stmt = $mysqli->prepare("INSERT INTO interests (interest) VALUES (?)");
@@ -193,7 +193,7 @@
 		echo "huviala: ".$interest_id."<br>";
 		echo "kasutaja: ".$_SESSION["userId"]."<br>";
 		
-		$database = "if16_romil";
+		$database = "if16_epals";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
 
 		//kas on juba olemas
@@ -238,7 +238,7 @@
 	
 	function getAllInterests() {
 		
-		$database = "if16_romil";
+		$database = "if16_epals";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
 		
 		$stmt = $mysqli->prepare("
@@ -275,7 +275,7 @@
 	
 	function getAllUserInterests() {
 		
-		$database = "if16_romil";
+		$database = "if16_epals";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
 		
 		$stmt = $mysqli->prepare("
@@ -335,7 +335,7 @@
 	
 	echo sum(5123123,123123123);
 	echo "<br>";
-	echo hello("Romil", "Robtsenkov");
+	echo hello("Elise", "Pals");
 	echo "<br>";
 	echo hello("Juku", "Juurikas");
 	*/
